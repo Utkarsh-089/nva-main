@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutri Vision | Dashboard</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/client.js"></script>
+</head>
+<body data-page="dashboard">
+  <div class="page-shell">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-badge">NV</div>
+        <div>
+          <div>Nutri Vision Dashboard</div>
+          <div class="subtle" id="nav-user-line">Loading profile...</div>
+        </div>
+      </div>
+      <div class="nav">
+        <a href="/dashboard" class="active">Dashboard</a>
+        <a href="/profile">Profile</a>
+        <a href="/settings">Settings</a>
+        <button id="logout-btn-top">Sign Out</button>
+      </div>
+    </div>
+
+    <div class="section-title">
+      <div>
+        <h2 id="dashboard-greeting">Welcome back</h2>
+        <p id="dashboard-subtitle">Tracking today’s nutrition goals.</p>
+      </div>
+      <div class="pill" id="dashboard-date-pill"></div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="card metric">
+        <div class="metric-header"><span>Calories</span><span id="calories-goal-label">0 / 0</span></div>
+        <div class="metric-value" id="metric-calories">0</div>
+        <div class="progress"><span id="progress-calories" style="width:0%"></span></div>
+      </div>
+      <div class="card metric">
+        <div class="metric-header"><span>Protein</span><span id="protein-goal-label">0 / 0</span></div>
+        <div class="metric-value" id="metric-protein">0 g</div>
+        <div class="progress"><span id="progress-protein" style="width:0%"></span></div>
+      </div>
+      <div class="card metric">
+        <div class="metric-header"><span>Carbs</span><span id="carbs-goal-label">0 / 0</span></div>
+        <div class="metric-value" id="metric-carbs">0 g</div>
+        <div class="progress"><span id="progress-carbs" style="width:0%"></span></div>
+      </div>
+      <div class="card metric">
+        <div class="metric-header"><span>Fat</span><span id="fat-goal-label">0 / 0</span></div>
+        <div class="metric-value" id="metric-fat">0 g</div>
+        <div class="progress"><span id="progress-fat" style="width:0%"></span></div>
+      </div>
+    </div>
+
+    <div class="dashboard-grid mt-3">
+      <div class="list">
+        <div class="card">
+          <div class="section-title">
+            <div>
+              <h3 class="mt-0">Log Your Food</h3>
+              <p>Type, speak, or use an image-assisted meal entry.</p>
+            </div>
+          </div>
+          <div class="pill" id="food-provider-pill">Latest food analysis: waiting</div>
+          <div class="food-tabs">
+            <button class="food-tab active" data-food-tab="text">Text</button>
+            <button class="food-tab" data-food-tab="voice">Voice</button>
+            <button class="food-tab" data-food-tab="image">Image</button>
+          </div>
+
+          <div class="food-panel active" id="food-panel-text">
+            <form id="text-log-form" class="fields">
+              <div class="inline-fields">
+                <div class="field">
+                  <label for="text-meal-type">Meal Type</label>
+                  <select id="text-meal-type" name="mealType">
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="snack">Snack</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="text-description">Meal Description</label>
+                <textarea id="text-description" name="description" placeholder="2 eggs and toast, grilled chicken salad, dal rice..."></textarea>
+              </div>
+              <button class="btn" type="submit">Log Meal</button>
+            </form>
+          </div>
+
+          <div class="food-panel" id="food-panel-voice">
+            <div class="fields">
+              <div class="field">
+                <label for="voice-transcript">Transcript</label>
+                <textarea id="voice-transcript" placeholder="Tap start and speak your meal."></textarea>
+              </div>
+              <div class="kpi-row">
+                <button class="btn alt" type="button" id="voice-start-btn">Start Listening</button>
+                <button class="btn ghost" type="button" id="voice-stop-btn">Stop</button>
+                <button class="btn" type="button" id="voice-log-btn">Log Transcript</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="food-panel" id="food-panel-image">
+            <form id="image-log-form" class="fields">
+              <div class="field">
+                <label for="image-file">Food Photo</label>
+                <input id="image-file" type="file" accept="image/*">
+              </div>
+              <div class="field">
+                <label for="image-caption">Caption</label>
+                <textarea id="image-caption" placeholder="Optional note about what is in the photo"></textarea>
+              </div>
+              <div id="image-preview" class="notice hidden"></div>
+              <button class="btn" type="submit">Analyze and Log</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">
+            <div>
+              <h3 class="mt-0">7 Day Trend</h3>
+              <p>Daily calorie totals from recent logs.</p>
+            </div>
+          </div>
+          <div id="trend-bars" class="trend-bars"></div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <h3 class="mt-0">Meal Suggestions</h3>
+            <p class="subtle" id="suggestions-provider-line">Provider: waiting</p>
+            <div id="suggestion-list" class="list"></div>
+          </div>
+          <div class="card">
+            <h3 class="mt-0">AI Health Insights</h3>
+            <p class="subtle" id="insights-provider-line">Provider: waiting</p>
+            <div id="insight-score" class="metric-value">0</div>
+            <p id="insight-summary" class="subtle"></p>
+            <div id="insight-list" class="list"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list">
+        <div class="card">
+          <h3 class="mt-0">Hydration</h3>
+          <div class="water-box">
+            <div>
+              <div class="water-count" id="water-count">0</div>
+              <div class="subtle" id="water-target-label">of 0 glasses</div>
+            </div>
+            <div class="list">
+              <button class="btn" type="button" id="water-add-btn">+1 Glass</button>
+              <button class="btn alt" type="button" id="water-remove-btn">-1 Glass</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="mt-0">Medical Alerts</h3>
+          <p class="subtle" id="alerts-provider-line">Provider: waiting</p>
+          <div id="alert-list" class="list"></div>
+        </div>
+
+        <div class="card">
+          <h3 class="mt-0">Recent Meals</h3>
+          <div id="recent-meals-list" class="list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assistant-panel card" id="assistant-panel">
+    <div class="assistant-body">
+      <div class="section-title">
+        <h3 class="mt-0">Voice Assistant</h3>
+        <button class="btn alt" type="button" id="assistant-close-btn">Close</button>
+      </div>
+      <div id="assistant-thread" class="list">
+        <div class="assistant-response">Ask me about your calories, meals, water, or today’s progress.</div>
+      </div>
+      <div class="field">
+        <label for="assistant-input">Ask Nutri Vision</label>
+        <textarea id="assistant-input" placeholder="What did I eat today?"></textarea>
+      </div>
+      <div class="kpi-row">
+        <button class="btn alt" type="button" id="assistant-mic-btn">Speak</button>
+        <button class="btn" type="button" id="assistant-send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+  <div class="assistant-fab">
+    <button class="btn" type="button" id="assistant-open-btn">Voice Assistant</button>
+  </div>
+</body>
+</html>

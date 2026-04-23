@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutri Vision | Settings</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/client.js"></script>
+</head>
+<body data-page="settings">
+  <div class="page-shell">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-badge">NV</div>
+        <div>
+          <div>Settings</div>
+          <div class="subtle">Privacy, notifications, and accessibility preferences</div>
+        </div>
+      </div>
+      <div class="nav">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/profile">Profile</a>
+        <a href="/settings" class="active">Settings</a>
+        <button id="logout-btn-top">Sign Out</button>
+      </div>
+    </div>
+
+    <form id="settings-form" class="settings-grid">
+      <div class="card fields">
+        <h3 class="mt-0">Notifications</h3>
+        <label class="pill"><input type="checkbox" id="setting-meal-reminders"> Meal reminders</label>
+        <label class="pill"><input type="checkbox" id="setting-medication-alerts"> Medication alerts</label>
+        <label class="pill"><input type="checkbox" id="setting-health-insights"> Health insights</label>
+      </div>
+
+      <div class="card fields">
+        <h3 class="mt-0">Privacy</h3>
+        <label class="pill"><input type="checkbox" id="setting-share-providers"> Share with providers</label>
+        <label class="pill"><input type="checkbox" id="setting-analytics"> Anonymous analytics</label>
+        <div class="field">
+          <label for="setting-retention">Data retention</label>
+          <select id="setting-retention">
+            <option value="1-year">1 Year</option>
+            <option value="2-years">2 Years</option>
+            <option value="5-years">5 Years</option>
+            <option value="indefinite">Indefinite</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="setting-encryption">Encryption level</label>
+          <select id="setting-encryption">
+            <option value="standard">Standard</option>
+            <option value="maximum">Maximum</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card fields">
+        <h3 class="mt-0">Accessibility</h3>
+        <label class="pill"><input type="checkbox" id="setting-high-contrast"> High contrast</label>
+        <label class="pill"><input type="checkbox" id="setting-large-text"> Large text</label>
+        <label class="pill"><input type="checkbox" id="setting-screen-reader"> Screen reader optimization</label>
+        <button class="btn" type="submit">Save Settings</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

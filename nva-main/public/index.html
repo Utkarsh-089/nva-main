@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutri Vision</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/client.js"></script>
+</head>
+<body data-page="landing">
+  <div class="page-shell">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-badge">NV</div>
+        <div>
+          <div>Nutri Vision</div>
+          <div class="subtle">Nutrition tracking with health-aware guidance</div>
+        </div>
+      </div>
+      <div class="nav">
+        <a href="/auth">Sign In</a>
+        <a href="/auth" class="active">Get Started</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-card hero-copy">
+        <div class="pill">Original capabilities, rebuilt cleanly</div>
+        <h1>Track meals, water, risks, and daily nutrition in one focused workspace.</h1>
+        <p>
+          Nutri Vision brings back the first-phase experience with onboarding, dashboard analytics, voice logging,
+          image-assisted meal entry, alerts, suggestions, and a voice assistant, now in a simpler full-stack structure.
+        </p>
+        <div class="kpi-row mt-3">
+          <a class="btn" href="/auth">Launch Dashboard Flow</a>
+          <a class="btn alt" href="#features">See Features</a>
+        </div>
+      </div>
+
+      <div class="hero-card hero-art">
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+        <div class="panel-stack">
+          <div class="glass">
+            <strong>Smart Food Logging</strong>
+            <span>Type, speak, or use an image-assisted entry flow for fast meal capture.</span>
+          </div>
+          <div class="glass">
+            <strong>Health-Aware Dashboard</strong>
+            <span>Macros, calories, hydration, suggestions, and alerts update from the same data model.</span>
+          </div>
+          <div class="glass">
+            <strong>Daily Guidance</strong>
+            <span>Insights and voice answers are generated from your current logs and profile goals.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="section-title">
+        <h2>Restored Frontend Capabilities</h2>
+        <p>Everything important from the first phase is back in a smaller system.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="card"><h3>Authentication</h3><p class="subtle">Sign up, sign in, persistent sessions, and gated pages.</p></div>
+        <div class="card"><h3>Onboarding</h3><p class="subtle">Step-based health profile setup for goals, conditions, restrictions, and allergies.</p></div>
+        <div class="card"><h3>Dashboard</h3><p class="subtle">Daily metrics, hydration, recent meals, trends, alerts, and suggestions.</p></div>
+        <div class="card"><h3>Voice Tools</h3><p class="subtle">Voice meal logging plus a browser voice assistant using Web Speech APIs.</p></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

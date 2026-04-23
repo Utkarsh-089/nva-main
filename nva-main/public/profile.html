@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutri Vision | Profile</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/client.js"></script>
+</head>
+<body data-page="profile">
+  <div class="page-shell">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-badge">NV</div>
+        <div>
+          <div>Health Profile</div>
+          <div class="subtle" id="nav-user-line">Manage your biometrics and health preferences</div>
+        </div>
+      </div>
+      <div class="nav">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/profile" class="active">Profile</a>
+        <a href="/settings">Settings</a>
+        <button id="logout-btn-top">Sign Out</button>
+      </div>
+    </div>
+
+    <form id="profile-form" class="profile-grid">
+      <div class="card fields">
+        <h3 class="mt-0">Basic Information</h3>
+        <div class="field">
+          <label for="profile-name">Name</label>
+          <input id="profile-name" name="name" required>
+        </div>
+        <div class="inline-fields">
+          <div class="field">
+            <label for="profile-age">Age</label>
+            <input id="profile-age" name="age" type="number">
+          </div>
+          <div class="field">
+            <label for="profile-gender">Gender</label>
+            <select id="profile-gender" name="gender">
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="profile-activity">Activity Level</label>
+          <select id="profile-activity" name="activityLevel">
+            <option value="sedentary">Sedentary</option>
+            <option value="light">Light</option>
+            <option value="moderate">Moderate</option>
+            <option value="active">Active</option>
+            <option value="very-active">Very Active</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="profile-goal">Primary Goal</label>
+          <select id="profile-goal" name="primaryGoal">
+            <option value="wellness">Wellness</option>
+            <option value="weight-loss">Weight Loss</option>
+            <option value="muscle-gain">Muscle Gain</option>
+            <option value="maintenance">Maintenance</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card fields">
+        <h3 class="mt-0">Medical and Dietary Information</h3>
+        <div class="field">
+          <label for="profile-medical">Medical Conditions</label>
+          <textarea id="profile-medical" name="medicalConditions"></textarea>
+        </div>
+        <div class="field">
+          <label for="profile-restrictions">Dietary Restrictions</label>
+          <textarea id="profile-restrictions" name="dietaryRestrictions"></textarea>
+        </div>
+        <div class="field">
+          <label for="profile-allergies">Allergies</label>
+          <textarea id="profile-allergies" name="allergies"></textarea>
+        </div>
+      </div>
+
+      <div class="card fields">
+        <h3 class="mt-0">Daily Goals</h3>
+        <div class="inline-fields">
+          <div class="field">
+            <label for="goal-calories">Calories</label>
+            <input id="goal-calories" name="goalCalories" type="number">
+          </div>
+          <div class="field">
+            <label for="goal-protein">Protein</label>
+            <input id="goal-protein" name="goalProtein" type="number">
+          </div>
+          <div class="field">
+            <label for="goal-carbs">Carbs</label>
+            <input id="goal-carbs" name="goalCarbs" type="number">
+          </div>
+          <div class="field">
+            <label for="goal-fat">Fat</label>
+            <input id="goal-fat" name="goalFat" type="number">
+          </div>
+          <div class="field">
+            <label for="goal-water">Water Glasses</label>
+            <input id="goal-water" name="goalWater" type="number">
+          </div>
+        </div>
+        <button class="btn" type="submit">Save Profile</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

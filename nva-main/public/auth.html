@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutri Vision | Auth</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/client.js"></script>
+</head>
+<body data-page="auth">
+  <div class="page-shell auth-wrap">
+    <a class="subtle" href="/">← Back to home</a>
+    <div class="card form-card mt-3">
+      <div class="section-title">
+        <div>
+          <h2>Secure Access</h2>
+          <p>Sign in or create an account to restore your Nutri Vision workspace.</p>
+        </div>
+      </div>
+
+      <div class="tab-row">
+        <button class="tab-btn active" data-auth-tab="login">Sign In</button>
+        <button class="tab-btn" data-auth-tab="signup">Sign Up</button>
+      </div>
+
+      <div class="tab-panel active" id="auth-login-panel">
+        <form id="login-form" class="fields">
+          <div class="field">
+            <label for="login-email">Email</label>
+            <input id="login-email" name="email" type="email" required>
+          </div>
+          <div class="field">
+            <label for="login-password">Password</label>
+            <input id="login-password" name="password" type="password" required>
+          </div>
+          <button class="btn full" type="submit">Sign In</button>
+        </form>
+      </div>
+
+      <div class="tab-panel" id="auth-signup-panel">
+        <form id="signup-form" class="fields">
+          <div class="field">
+            <label for="signup-name">Full Name</label>
+            <input id="signup-name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="signup-email">Email</label>
+            <input id="signup-email" name="email" type="email" required>
+          </div>
+          <div class="field">
+            <label for="signup-password">Password</label>
+            <input id="signup-password" name="password" type="password" minlength="6" required>
+            <small>Use at least 6 characters.</small>
+          </div>
+          <button class="btn full" type="submit">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

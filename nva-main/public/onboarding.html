@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutri Vision | Onboarding</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/client.js"></script>
+</head>
+<body data-page="onboarding">
+  <div class="page-shell">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-badge">NV</div>
+        <div>
+          <div>Health Profile Setup</div>
+          <div class="subtle">Complete your profile to unlock the dashboard</div>
+        </div>
+      </div>
+      <div class="nav">
+        <button id="logout-btn-top">Sign Out</button>
+      </div>
+    </div>
+
+    <div class="card form-card">
+      <div class="kpi-row">
+        <span class="pill" id="onboarding-step-pill">Step 1 of 2</span>
+      </div>
+
+      <form id="onboarding-form" class="fields mt-2">
+        <section data-step="1">
+          <div class="inline-fields">
+            <div class="field">
+              <label for="onb-age">Age</label>
+              <input id="onb-age" name="age" type="number" min="1" max="120" required>
+            </div>
+            <div class="field">
+              <label for="onb-gender">Gender</label>
+              <select id="onb-gender" name="gender" required>
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="onb-activity">Activity Level</label>
+            <select id="onb-activity" name="activityLevel" required>
+              <option value="">Select</option>
+              <option value="sedentary">Sedentary</option>
+              <option value="light">Light</option>
+              <option value="moderate">Moderate</option>
+              <option value="active">Active</option>
+              <option value="very-active">Very Active</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="onb-goal">Primary Goal</label>
+            <select id="onb-goal" name="primaryGoal" required>
+              <option value="wellness">Wellness</option>
+              <option value="weight-loss">Weight Loss</option>
+              <option value="muscle-gain">Muscle Gain</option>
+              <option value="maintenance">Maintenance</option>
+            </select>
+          </div>
+        </section>
+
+        <section data-step="2" class="hidden">
+          <div class="field">
+            <label for="onb-medical">Medical Conditions</label>
+            <textarea id="onb-medical" name="medicalConditions" placeholder="Diabetes Type 2, Hypertension"></textarea>
+          </div>
+          <div class="field">
+            <label for="onb-restrictions">Dietary Restrictions</label>
+            <textarea id="onb-restrictions" name="dietaryRestrictions" placeholder="Vegetarian, Low-Carb"></textarea>
+          </div>
+          <div class="field">
+            <label for="onb-allergies">Allergies</label>
+            <textarea id="onb-allergies" name="allergies" placeholder="Peanuts, Shellfish"></textarea>
+          </div>
+        </section>
+
+        <div class="kpi-row">
+          <button class="btn alt hidden" type="button" id="onboarding-back">Back</button>
+          <button class="btn" type="button" id="onboarding-next">Next</button>
+          <button class="btn hidden" type="submit" id="onboarding-submit">Complete Setup</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
