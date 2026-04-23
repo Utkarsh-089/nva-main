@@ -1,4 +1,4 @@
-# Nutri Vision Flat
+# Nutri Vision 
 
 A minimal yet powerful nutrition tracking application built with Express.js and MongoDB. Track your meals, monitor daily nutritional goals, and get AI-powered insights about your diet using Google's Gemini API.
 
